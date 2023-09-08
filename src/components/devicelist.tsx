@@ -2,8 +2,8 @@ import axios, { Axios } from "axios"
 import {useState} from "react";
 import ModuleBox from "./modulebox";
 
-const backAddr = process.env.BACKEND_ADDR;
-const backPort = process.env.BACK_PORT;
+const backAddr = "192.168.1.51";
+const backPort =  8090;
 
 const backUrl = `${backAddr}:${backPort}`
 

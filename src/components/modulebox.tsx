@@ -3,8 +3,8 @@ import {useState} from "react";
 import Popup from "reactjs-popup";
 import { Device } from "./devicelist"
 
-const backAddr = process.env.BACKEND_ADDR;
-const backPort = process.env.BACK_PORT;
+const backAddr = "192.168.1.51";
+const backPort =  8090;
 
 const backUrl = `${backAddr}:${backPort}`
 
