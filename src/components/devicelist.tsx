@@ -2,6 +2,11 @@ import axios, { Axios } from "axios"
 import {useState} from "react";
 import ModuleBox from "./modulebox";
 
+const backAddr = process.env.BACKEND_ADDR;
+const backPort = process.env.BACK_PORT;
+
+const backUrl = `${backAddr}:${backPort}`
+
 export interface Device {
   Address: string;
   Name: string;
@@ -17,7 +22,7 @@ export default function DeviceList() {
   const getDevices = async (): Promise<Devices | null> => {
     const options = {
       method: "GET",
-      url: "http://192.168.1.51:8090/devices",
+      url: `http://${backUrl}/devices`,
       withCredentials: false
     }
 

@@ -3,6 +3,11 @@ import {useState} from "react";
 import Popup from "reactjs-popup";
 import { Device } from "./devicelist"
 
+const backAddr = process.env.BACKEND_ADDR;
+const backPort = process.env.BACK_PORT;
+
+const backUrl = `${backAddr}:${backPort}`
+
 interface DefaultError {
   Error: string;
 }
@@ -29,7 +34,7 @@ export default function ModuleBox({ Address, Name }: Device) {
   const toggle = async () => {
     const options = {
       method: "POST",
-      url: "http://192.168.1.51:8090/toggle",
+      url: `http://${backUrl}/toggle`,
       withCredentials: false,
       data: { address: address }
     }
@@ -48,7 +53,7 @@ export default function ModuleBox({ Address, Name }: Device) {
 
     const options = {
       method: "POST",
-      url: "http://192.168.1.51:8090/name",
+      url: `http://${backUrl}/name`,
       withCredentials: false,
       data: { address: address, name: target.nameinput.value}
     }
